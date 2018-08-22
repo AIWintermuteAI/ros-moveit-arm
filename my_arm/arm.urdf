@@ -1,0 +1,160 @@
+<robot name="test_robot">
+  <link name="base_cylinder">
+	<visual>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/base_cylinder.stl" scale ="0.001 0.001 0.001"/>
+         </geometry>
+        </visual>
+        <collision>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/base_cylinder.stl" scale ="0.001 0.001 0.001"/>
+         </geometry>
+        </collision>
+  </link>
+
+  <link name="platform">
+	<visual>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/top_plate.stl"/>
+         </geometry>
+        </visual>
+        <collision>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/top_plate.stl"/>
+         </geometry>
+        </collision>
+  </link>
+
+  <link name="lower_arm">
+	<visual>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/lower_arm.stl"/>
+         </geometry>
+        </visual>
+        <collision>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/lower_arm.stl"/>
+         </geometry>
+        </collision>
+  </link>
+
+  <link name="upper_arm">
+	<visual>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/top_arm.stl"/>
+         </geometry>
+        </visual>
+        <collision>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/top_arm.stl"/>
+         </geometry>
+        </collision>
+  </link>
+
+  <link name="wrist">
+	<visual>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/wrist.stl"/>
+         </geometry>
+        </visual>
+        <collision>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/wrist.stl"/>
+         </geometry>
+        </collision>
+  </link>
+
+  <link name="claw_base">
+	<visual>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/clawbase.stl"/>
+         </geometry>
+        </visual>
+        <collision>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/clawbase.stl"/>
+         </geometry>
+        </collision>
+  </link>
+
+  <link name="claw_l">
+	<visual>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/clawl.stl"/>
+         </geometry>
+        </visual>
+        <collision>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/clawl.stl"/>
+         </geometry>
+        </collision>
+  </link>
+
+  <link name="claw_r">
+	<visual>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/clawr.stl"/>
+         </geometry>
+        </visual>
+        <collision>
+         <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/clawr.stl"/>
+         </geometry>
+        </collision>
+  </link>
+
+  <joint name="joint1" type="revolute">
+    <axis xyz="0 0 1" />
+    <limit effort="1000.0" lower="-1.708" upper="1.708" velocity="1.0" />
+    <parent link="base_cylinder"/>
+    <child link="platform"/>
+  </joint>
+
+  <joint name="joint2" type="revolute">
+    <axis xyz="-1 0 0" />
+    <limit effort="1000.0" lower="-1.708" upper="1.708" velocity="1.0" />
+    <origin xyz="0 0 0.093" rpy="0 0 0" />
+    <parent link="platform"/>
+    <child link="lower_arm"/>
+  </joint>
+
+  <joint name="joint3" type="revolute">
+    <axis xyz="1 0 0" />
+    <limit effort="1000.0" lower="-1.708" upper="1.708" velocity="1.0" />
+    <origin xyz="0 0 0.121" rpy="0 0 0" />
+    <parent link="lower_arm"/>
+    <child link="upper_arm"/>
+  </joint>
+
+  <joint name="joint4" type="revolute">
+    <axis xyz="-1 0 0" />
+    <limit effort="1000.0" lower="-1.708" upper="1.708" velocity="1.0" />
+    <origin xyz="0 0 0.112" rpy="0 0 0" />
+    <parent link="upper_arm"/>
+    <child link="wrist"/>
+  </joint>
+
+  <joint name="joint5" type="fixed">
+    <axis xyz="-1 0 0" />
+    <origin xyz="0 0 0.112" rpy="0 0 0" />
+    <parent link="wrist"/>
+    <child link="claw_base"/>
+  </joint>
+
+  <joint name="joint6" type="revolute">
+    <axis xyz="0 1 0" />
+    <limit effort="1000.0" lower="-0.15" upper="0.30" velocity="1.0" />
+    <origin xyz="-0.027 0 0" rpy="0 0 0" />
+    <parent link="claw_base"/>
+    <child link="claw_l"/>
+  </joint>
+
+  <joint name="joint7" type="revolute">
+    <axis xyz="0 -1 0" />
+    <limit effort="1000.0" lower="-0.15" upper="0.30" velocity="1.0" />
+    <origin xyz="-0.027 0 0" rpy="0 0 0" />
+    <parent link="claw_base"/>
+    <child link="claw_r"/>
+  </joint>
+
+</robot>
