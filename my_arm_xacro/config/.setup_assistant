@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ""
+    relative_path: /home/ubuntu/catkin_ws/src/my_arm_xacro/config/arm.urdf
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: test_robot.srdf
+  CONFIG:
+    author_name: Dmitry
+    author_email: dmitrywat@gmail.com
+    generated_timestamp: 1541604510

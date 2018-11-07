@@ -1,0 +1,6 @@
+<robot file="arm.dae">
+        <Manipulator name="my_robot_arm">
+          <base>base_cylinder</base>
+          <effector>claw_base</effector>
+        </Manipulator>
+</robot>
