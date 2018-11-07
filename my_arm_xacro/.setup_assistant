@@ -6,6 +6,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/test_robot.srdf
   CONFIG:
-    author_name: DMitry
+    author_name: Dmitry
     author_email: dmitrywat@gmail.com
-    generated_timestamp: 1534921258
+    generated_timestamp: 1537810800

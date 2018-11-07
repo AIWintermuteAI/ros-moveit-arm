@@ -1,0 +1,11 @@
+<launch>
+      <group ns="stereo">
+           <node pkg="uvc_camera" type="uvc_stereo_node" name="mycam">
+           <!-- Parameters used to find the camera -->
+           <param name="left/device" value="/dev/video0"/>
+           <param name="right/device" value="/dev/video1"/>
+           <param name="width" value="640" />
+           <param name="height" value="480" />
+           </node>
+      </group>
+</launch>
